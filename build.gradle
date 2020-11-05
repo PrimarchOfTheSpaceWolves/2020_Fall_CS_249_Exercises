@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+group 'edu.realemj'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '14'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+}
+
+test {
+    useTestNG()
+}
+
+mainClassName = 'HowdyFX'
+
+task runHowdy(type:JavaExec) {
+    main = "edu.realemj.Howdy.HowdyPrinter"
+    classpath = sourceSets.main.runtimeClasspath
+    dependsOn 'classes'
+    group "my programs"
+    standardInput = System.in
+}
+
+task runHowdyFX(type:JavaExec) {
+    main = "HowdyFX"
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = [
+            "--module-path", classpath.asPath,
+            "--add-modules", "javafx.controls",
+            "--add-modules", "javafx.fxml"
+    ]
+    dependsOn 'classes'
+    group "my programs"
+    standardInput = System.in
+}
