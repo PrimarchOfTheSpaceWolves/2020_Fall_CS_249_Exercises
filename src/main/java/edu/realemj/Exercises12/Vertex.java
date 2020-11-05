@@ -5,6 +5,7 @@ public class Vertex {
     private double y;
     private double z;
 
+
     public Vertex() {}
 
     public Vertex(double x, double y, double z) {
