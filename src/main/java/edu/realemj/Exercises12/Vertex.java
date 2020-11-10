@@ -17,4 +17,8 @@ public class Vertex {
     public double getX() { return x; }
     public double getY() { return y; }
     public double getZ() { return z; }
+
+    public void scaleY(double factor) {
+        y = y*factor;
+    }
 }
