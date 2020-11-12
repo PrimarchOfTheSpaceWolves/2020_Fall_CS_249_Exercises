@@ -2,7 +2,7 @@ package edu.realemj.Exercises13;
 
 import javafx.geometry.Point2D;
 
-public class Circle extends Shape {
+public class Circle extends Shape implements Comparable<Circle> {
     private double radius;
 
     public Circle() {
@@ -48,7 +48,26 @@ public class Circle extends Shape {
         return s;
     }
 
+    @Override
     public double getArea() {
         return Math.PI*radius*radius;
+    }
+
+    @Override
+    public int compareTo(Circle c) {
+        final double EPS = 1e-14;
+
+        if(Math.abs(radius - c.radius) <= EPS) {
+            // Equal
+            return 0;
+        }
+        else if((radius - c.radius) > EPS) {
+            // Greater
+            return 1;
+        }
+        else {
+            // Less
+            return -1;
+        }
     }
 }
