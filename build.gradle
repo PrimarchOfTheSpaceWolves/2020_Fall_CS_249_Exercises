@@ -60,3 +60,29 @@ task runMyJavaFX(type:JavaExec) {
     group "my javafx programs"
     standardInput = System.in
 }
+
+task runDeepThought(type:JavaExec) {
+    main = "edu.realemj.Exercises15.DeepThought"
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = [
+            "--module-path", classpath.asPath,
+            "--add-modules", "javafx.controls",
+            "--add-modules", "javafx.fxml"
+    ]
+    dependsOn 'classes'
+    group "my javafx programs"
+    standardInput = System.in
+}
+
+task runMuffinClicker(type:JavaExec) {
+    main = "edu.realemj.Exercises15.MuffinClicker"
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = [
+            "--module-path", classpath.asPath,
+            "--add-modules", "javafx.controls",
+            "--add-modules", "javafx.fxml"
+    ]
+    dependsOn 'classes'
+    group "my javafx programs"
+    standardInput = System.in
+}
