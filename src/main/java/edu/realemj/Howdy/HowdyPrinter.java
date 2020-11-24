@@ -12,6 +12,7 @@ public class HowdyPrinter {
         p.write();
         p.write();
 
+
         System.out.println("DO YOU FEEL IN CHARGE?");
         System.out.print("Victory has");
         System.out.print(" defeated you!");
